@@ -4,7 +4,7 @@
 let buttons = document.querySelectorAll('.btn');
 
 const destination = document.querySelector('.destination');
-
+let nav = document.querySelectorAll('nav a');
 let images = document.querySelectorAll('img');
 
 let titlesSmall = document.querySelectorAll('h4');
@@ -54,5 +54,73 @@ const input = document.querySelector('input')
 // window.addEventListener('load', (event) => {
 //     titlesSmall.textTransform = 'capitalize';
 //   });
-images.scroll(100, 50)
+window.addEventListener('scroll', (event => {
+    console.log('Scrolling....');
+
+}));
   
+
+const heightOutput = document.querySelector('#height');
+const widthOutput = document.querySelector('#width');
+
+function reportWindowSize() {
+  heightOutput.textContent = window.innerHeight;
+  widthOutput.textContent = window.innerWidth;
+}
+
+window.onresize = reportWindowSize;
+
+window.addEventListener('resize', reportWindowSize);
+
+const password = document.querySelector('input[type="password"]');
+
+password.addEventListener('focus', (event) => {
+  event.target.style.background = 'pink';
+});
+
+password.addEventListener('blur', (event) => {
+  event.target.style.background = '';
+});
+
+input.addEventListener('keydown', logKey);
+
+function logKey(e) {
+  log.textContent += ` ${e.code}`;
+}
+
+function zoom(event) {
+    event.preventDefault();
+    scale += event.deltaY * -0.02;
+    scale = Math.min(Math.max(.200, scale), 3);
+    images.style.transform = `scale(${scale})`;
+  }
+  
+  let scale = 1;
+
+  window.onwheel = zoom;
+
+  const log = document.querySelector('.event-log-contents');
+const reload = document.querySelector('#reload');
+
+reload.addEventListener('click', () => {
+  log.textContent ='';
+  window.setTimeout(() => {
+      window.location.reload(true);
+  }, 200);
+});
+
+window.addEventListener('load', (event) => {
+    log.textContent = log.textContent + 'load\n';
+});
+
+document.addEventListener('readystatechange', (event) => {
+    log.textContent = log.textContent + `readystate: ${document.readyState}\n`;
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    log.textContent = log.textContent + `DOMContentLoaded\n`;
+});
+
+nav.click(function (event) {
+    event.preventDefault();
+  });
