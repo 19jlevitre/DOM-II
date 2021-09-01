@@ -39,6 +39,8 @@
     </header>
     <section class="content-section">
       <div class="text-content">
+        <input value="Slap some text down my guy.">
+<p id="log"></p>
         <h2>Let's Go!</h2>
         <p>Adventure webdesign pretty design design, excursion cute WordPress blogger design webdesign adventure. Pretty simple traveling fun WordPress wanderlust darn simple organized.</p> 
         <p>Expedition colorful design simple excursion blogger blogger design WordPress design, design organized website theme.</p>
@@ -73,18 +75,34 @@
       <div class="destination">
         <h4>Mountain Excursion</h4>
         <p>Expedition excursion design excursion fun, clean simple organized WordPress Travel colorful webdesign. Traveler blogger website design expedition clean excursion traveling.</p>
+        <p>Resize the browser window...go for it for the <code>resize</code> event.</p>
+<p>Window height: <span id="height"></span></p>
+<p>Window width: <span id="width"></span></p>
         <div class="btn">Sign Me Up!</div>
       </div>
+      
       <div class="destination">
         <h4>Island Getaway</h4>
         <p>Expedition excursion design excursion fun, clean simple organized WordPress Travel colorful webdesign. Traveler blogger website design expedition clean excursion traveling.</p>
         <div class="btn">Sign Me Up!</div>
+        <form id="form">
+          <input type="text" placeholder="username">
+          <input type="password" placeholder="password">
+        </form>
       </div>
     </section>
   </div><!-- container -->
 
   <footer class="footer">
     <p>Copyright Fun Bus 2020</p>
+    <div class="controls">
+      <button id="reload" type="button">Reload</button>
+    </div>
+    
+    <div class="event-log">
+      <label>Event log:</label>
+      <textarea readonly class="event-log-contents" rows="8" cols="30"></textarea>
+    </div>
   </footer>
 
 </body>
